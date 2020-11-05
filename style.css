@@ -1,9 +1,31 @@
+body {
+  margin-top: 70px;
+}
+nav {
+  position: fixed !important;
+  z-index: 10;
+  top: 0;
+  background-color: hsla(0, 100%, 95%, 0.774) !important;
+  width: 100%;
+}
+
 .card-img-top {
   height: 50%;
 }
 .book-btns {
   display: flex;
   justify-content: space-between;
+}
+.btn-outline-primary {
+  color: goldenrod !important;
+  border: 1px solid goldenrod !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+  background-color: gold !important;
+  box-shadow: 0 0 5px goldenrod !important;
+  color: rgb(94, 73, 20) !important;
 }
 .card-body {
   height: 50%;
@@ -19,5 +41,32 @@
   to {
     opacity: 0;
     left: 500px;
+  }
+}
+.cancel-btn {
+  background-color: transparent;
+  color: rgb(206, 218, 32);
+  border: none;
+  font-weight: 600;
+  position: relative;
+}
+.cancel-btn:hover {
+  color: red;
+  text-shadow: 0 0 15px gold;
+}
+.cancel-btn:active {
+  color: black;
+  text-shadow: 0 0 15px #00ff84;
+}
+.selected {
+  border: 1px solid goldenrod !important;
+  box-shadow: 0 0 5px goldenrod;
+}
+.selected .card-title {
+  color: goldenrod;
+}
+@media (max-width: 1000px) {
+  nav form button.btn {
+    display: none;
   }
 }

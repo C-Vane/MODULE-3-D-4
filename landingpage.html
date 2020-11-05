@@ -39,22 +39,26 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-light ">
                 <div class="container">
-                    <a class="navbar-brand" href="#"><i class="fa fa-book-open" aria-hidden="true"></i> The
+                    <a class="navbar-brand" href="index.html"><i class="fa fa-book-open" aria-hidden="true"></i> The
                         Bookstore</a>
-
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#footer">About</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <p class="nav-link dropdown-toggle m-0" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    Shopping Cart</p>
-                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <p class="nav-link dropdown-toggle m-0" href="#" id="dropdownId" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"
+                                        aria-hidden="true"></i> Shopping Cart</p>
+                                <div class="dropdown-menu " aria-labelledby="dropdownId">
                                     <div class="dropdown-item d-flex justify-content-around">
                                         <div class="d-flex justify-content-between">
                                             <h4>Total: €</h4>
@@ -68,23 +72,12 @@
                             </li>
                         </ul>
                     </div>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" oninput="filterBooks(event)"
-                            placeholder="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" onclick="searchBooks()"
-                            type="submit">Search</button>
-                    </form>
-                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
-                        data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                 </div>
             </nav>
         </header>
 
         <main class="container">
-            <h1>Available Books</h1>
+
 
 
         </main>
@@ -106,7 +99,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+        <script src="landing.js"></script>
     </body>
 
 </html>

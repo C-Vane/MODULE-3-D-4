@@ -1,7 +1,8 @@
 window.onload = () => {
   loadBooks();
 };
-const fetchBooks = (data) => {
+
+let fetchBooks = (data) => {
   fetch(" https://striveschool-api.herokuapp.com/books", {
     method: "GET",
   })
@@ -24,12 +25,12 @@ const loadBooks = () => {
     let cards = document.createElement("div");
     cards.classList.add("row");
     const destination = document.querySelector("main");
-    console.log(body[0]);
     body.forEach((element) => {
-      cards.innerHTML += `<div class="card col-sm-6 col-md-4 col-lg-2 m-3 p-0">
-        <img src="${element.img}" alt="book" class="card-img-top">
+      cards.innerHTML += `
+    <div class="card col-sm-6 col-md-4 col-lg-2 m-3 p-0">
+        <img src="${element.img}" alt="book" class="card-img-top"/>
         <div class="card-body">
-            <h6 class="card-title"> ${element.title}</h6>
+            <h6 class="card-title"><a href="landingpage.html?id=${element.asin}" class="text-muted"> ${element.title}</a></h6>
             <p class="card-text">Price: €${element.price}</p>
             <p class="card-text">Catagory: ${element.category}</p>
             <div class="book-btns">
@@ -48,16 +49,43 @@ const removeBook = (event) => {
   card.classList.add("loadoff");
   setTimeout(() => card.remove(), 1000);
 };
-
+let sum = 0;
 const addToCart = (event) => {
   const book = event.target.parentNode.parentNode.parentNode;
   const title = book.querySelector(".card-title").innerText;
-  const price = book.querySelector(".card-text").innerText.split("‎€");
-  console.log(price);
+  const price = book.querySelector(".card-text").innerText.split(" ");
+  book.classList.add("selected");
   const destination = document.querySelector(".dropdown-menu");
-  let cart_item = document.createElement("p");
-  cart_item.classList.add("dropdown-item", "d-flex", "justify-content-between");
-  cart_item.innerHTML = `<i class="fa fa-book-open" aria-hidden="true"></i> 
-  <span>${title}</span><span>${price}<span>`;
+  sum = sum + Number(price[1].split("€")[1]);
+  const total = destination.querySelectorAll("div div h4")[1];
+  total.innerText = sum.toFixed(2);
+  let cart_item = document.createElement("div");
+  cart_item.classList.add("dropdown-item", "d-flex", "justify-content-between", "text-left");
+  cart_item.innerHTML = `
+  <p class="mr-5 text-left"><i class="fa fa-book-open" aria-hidden="true"></i> ${title}</p>
+  <div> <span>${price[1]}</span> <button class="btn cancel-btn" onclick="cancelOrder(event)">x</button></div>`;
   destination.insertBefore(cart_item, destination.firstChild);
+};
+const cancelOrder = (event) => {
+  let card = event.target.parentNode.parentNode;
+  let price = card.querySelectorAll("span")[1].innerText.split("€");
+  sum = sum - Number(price[1]);
+  const total = document.querySelector(".dropdown-menu").querySelectorAll("div div h4")[1];
+  total.innerText = sum.toFixed(2);
+  card.remove();
+};
+const removeAll = () => {
+  document.querySelectorAll(".dropdown-item .cancel-btn").forEach((el) => el.click());
+  document.querySelectorAll(".selected").forEach((el) => el.classList.remove("selected"));
+};
+const searchBooks = () => {
+  const search = document.querySelector("input[type='search']").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((el) => (el.style.display = "block"));
+  const searchcards = Array.from(cards).filter((book) => !book.querySelector(".card-title").innerText.toLowerCase().includes(search));
+  searchcards.forEach((el) => (el.style.display = "none"));
+};
+const filterBooks = (event) => {
+  const search = event.target.value;
+  search.length > 2 ? searchBooks() : document.querySelectorAll(".card").forEach((el) => (el.style.display = "block"));
 };
