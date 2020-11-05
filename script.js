@@ -68,7 +68,7 @@ const addToCart = (event) => {
 };
 const cancelOrder = (event) => {
   let card = event.target.parentNode.parentNode;
-  let price = card.querySelectorAll("span")[1].innerText.split("€");
+  let price = card.querySelectorAll("span")[0].innerText.split("€");
   sum = sum - Number(price[1]);
   const total = document.querySelector(".dropdown-menu").querySelectorAll("div div h4")[1];
   total.innerText = sum.toFixed(2);
