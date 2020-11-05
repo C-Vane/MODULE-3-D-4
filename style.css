@@ -1,0 +1,23 @@
+.card-img-top {
+  height: 50%;
+}
+.book-btns {
+  display: flex;
+  justify-content: space-between;
+}
+.card-body {
+  height: 50%;
+}
+.loadoff {
+  animation: delete 1s ease-out;
+}
+@keyframes delete {
+  from {
+    opacity: 1;
+    left: 0;
+  }
+  to {
+    opacity: 0;
+    left: 500px;
+  }
+}
