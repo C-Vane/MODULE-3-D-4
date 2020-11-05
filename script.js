@@ -30,7 +30,7 @@ const loadBooks = () => {
     <div class="card col-sm-6 col-md-4 col-lg-2 m-3 p-0">
         <img src="${element.img}" alt="book" class="card-img-top"/>
         <div class="card-body">
-            <h6 class="card-title"><a href="landingpage.html?id=${element.asin}" class="text-muted"> ${element.title}</a></h6>
+            <h6 class="card-title"><a href="landingpage.html?id=${element.asin}" class="text-muted d-inline-block text-truncate"  style="max-width: 100%;"> ${element.title}</a></h6>
             <p class="card-text">Price: €${element.price}</p>
             <p class="card-text">Catagory: ${element.category}</p>
             <div class="book-btns">

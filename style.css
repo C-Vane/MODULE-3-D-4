@@ -8,9 +8,11 @@ nav {
   background-color: hsla(0, 100%, 95%, 0.774) !important;
   width: 100%;
 }
-
+.card-body {
+  height: 100px !important;
+}
 .card-img-top {
-  height: 50%;
+  height: 55%;
 }
 .book-btns {
   display: flex;
@@ -27,9 +29,7 @@ nav {
   box-shadow: 0 0 5px goldenrod !important;
   color: rgb(94, 73, 20) !important;
 }
-.card-body {
-  height: 50%;
-}
+
 .loadoff {
   animation: delete 1s ease-out;
 }
@@ -66,7 +66,13 @@ nav {
   color: goldenrod;
 }
 @media (max-width: 1000px) {
+  body {
+    margin-top: 100px;
+  }
   nav form button.btn {
     display: none;
+  }
+  .card-img-top {
+    height: 65%;
   }
 }
