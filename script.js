@@ -81,6 +81,7 @@ const removeAll = () => {
 const searchBooks = () => {
   const search = document.querySelector("input[type='search']").value.toLowerCase();
   const cards = document.querySelectorAll(".card");
+  console.log(cards, Array.from(cards));
   cards.forEach((el) => (el.style.display = "block"));
   const searchcards = Array.from(cards).filter((book) => !book.querySelector(".card-title").innerText.toLowerCase().includes(search));
   searchcards.forEach((el) => (el.style.display = "none"));
